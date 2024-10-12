@@ -1,3 +1,10 @@
+:root{
+  --deep-blue: #004581;
+  --sky-blue: #018abd;
+  --light-blue: #97cbdc;
+  --very-light-blue: #dde8f0;
+}
+
 html,
 body{
   margin: 0;
