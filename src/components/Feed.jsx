@@ -3,6 +3,8 @@ import { Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+import {Sidebar, Videos} from './'
+
 const Feed = () => {
     return (
         <Stack sx={{
@@ -23,10 +25,21 @@ const Feed = () => {
                     md: 2
                 }
                 }}>
-        {/* <Sidebar></Sidebar> */}
+        <Sidebar />
             <Typography className="copyright" variant="body2" sx={{mt: 1.5, color: '#fff'}} >
                 Copyright 2024 Foma Media
             </Typography>
+            </Box>
+
+            <Box p={2} sx={{ overflow: 'auto', height: '90vh', flex: 2}}>
+                <Typography variant="h4"
+                fontWeight="bold" mb={2} sx={{
+                    color: 'white'
+                }}>
+                    New <span style={{ color: '#018abd'}}>Videos</span>
+                </Typography>
+
+                <Videos />
             </Box>
         </Stack>
     )
