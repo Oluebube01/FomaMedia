@@ -1,27 +1,23 @@
-import http from 'https';
+import axios from 'axios';
+
+
+const BASE_URL = 'https://youtube-v31.p.rapidapi.com/search';
 
 const options = {
-    method: 'GET',
-    hostname: 'youtube-v31.p.rapidapi.com',
-    port: null,
-    path: '/search?relatedToVideoId=7ghhRHRP6t4&part=id%2Csnippet&type=video&maxResults=50',
+    params: {
+        maxResults: '50'
+    },
     headers: {
-        'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY,
+        'x-rapidapi-key': '20268abbb4msh561b7a19181bfc4p1da2a7jsn75c3b6531074',
         'x-rapidapi-host': 'youtube-v31.p.rapidapi.com'
     }
 };
 
-export const req = http.request(options, function (res) {
-    const chunks = [];
+const fetchFromAPI  = async (url) => {
+    const {data} = await axios.get(`${BASE_URL}/${url}`, options)
 
-    res.on('data', function (chunk) {
-        chunks.push(chunk);
-    });
+    return data;
+}
 
-    res.on('end', function () {
-        const body = Buffer.concat(chunks);
-        console.log(body.toString());
-    });
-});
 
-req.end();
+export default  fetchFromAPI

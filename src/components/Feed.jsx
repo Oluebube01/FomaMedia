@@ -3,16 +3,14 @@ import { Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import req  from '../utils/fetchFromAPI.jsx'
+import fetchFromAPI  from '../utils/fetchFromAPI.jsx'
 
 import Sidebar from './SideBar.jsx'
 import Videos from './Videos.jsx'
 
 const Feed = () => {
 
-    useEffect(() => {
-        req(`search?part=snippet&q=${selectedCategory}`)
-    }, [])
+    
 
     return (
         <Stack sx={{
