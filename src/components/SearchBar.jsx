@@ -18,15 +18,16 @@ const SearchBar = () => {
         >
             <input 
                 className="search-bar"
-                placeHolder="Search..."
+                placeholder="Search..."
                 value=""
+                name="search-bar"
                 onChange={() => {}}
             />
             <IconButton
                 type="submit"
                 sx={{ 
                     p: '10px',
-                    color: 'blue'
+                    color: '#004581'
                 }}
             >
                 <Search />
