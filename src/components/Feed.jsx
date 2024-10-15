@@ -10,7 +10,13 @@ import Videos from './Videos.jsx'
 
 const Feed = () => {
 
-    
+    const [selectedCategory, setSelectedCategory] = useState('New');
+    const [videos, setVideos] = useState([]);
+
+    useEffect( () => {
+        fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+        .then((data) => setVideos(data.items))
+    }, [selectedCategory]);
 
     return (
         <Stack sx={{
@@ -31,7 +37,10 @@ const Feed = () => {
                     md: 2
                 }
                 }}>
-        <Sidebar />
+        <Sidebar
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+        />
             <Typography className="copyright" variant="body2" sx={{mt: 1.5, color: '#fff'}} >
                 Copyright 2024 Foma Media
             </Typography>
@@ -42,10 +51,10 @@ const Feed = () => {
                 fontWeight="bold" mb={2} sx={{
                     color: 'white'
                 }}>
-                    New <span style={{ color: '#018abd'}}>Videos</span>
+                {selectedCategory} <span style={{ color: '#018abd'}}>Videos</span>
                 </Typography>
 
-                <Videos />
+                <Videos videos={[videos]} />
             </Box>
         </Stack>
     )

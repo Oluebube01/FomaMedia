@@ -33,7 +33,7 @@ export const categories = [
     {name: 'Crypto', Icon: <DeveloperModeIcon />, },
 ];
 
-export const demoThumnailUrl = '';
+export const demoThumbnailUrl = '';
 export const demoChannelUrl = '';
 export const demoVideoUrl = '';
 export const demoChannelTitle = 'Javascript Mastery';
